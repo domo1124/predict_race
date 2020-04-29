@@ -1,0 +1,42 @@
+[
+  {
+    "mode": "NULLABLE", 
+    "name": "race_id", 
+    "type": "INTEGER"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "no1", 
+    "type": "INTEGER"
+  },
+  {
+    "mode": "NULLABLE", 
+    "name": "no2", 
+    "type": "INTEGER"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "no3", 
+    "type": "INTEGER"
+  },
+  {
+    "mode": "NULLABLE", 
+    "name": "no4", 
+    "type": "INTEGER"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "no5", 
+    "type": "INTEGER"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "no6", 
+    "type": "INTEGER"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "no7", 
+    "type": "INTEGER"
+  }
+]

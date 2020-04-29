@@ -1,0 +1,67 @@
+[
+  {
+    "mode": "NULLABLE", 
+    "name": "result7", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "result6", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "result5", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "result1", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "result3", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "horse_id", 
+    "type": "INTEGER"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "race_id", 
+    "type": "INTEGER"
+  }, 
+  {
+    "mode": "REPEATED", 
+    "name": "pred_model_1", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "REPEATED", 
+    "name": "pred_model_4", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "result2", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "REPEATED", 
+    "name": "pred_model_3", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "NULLABLE", 
+    "name": "result4", 
+    "type": "FLOAT"
+  }, 
+  {
+    "mode": "REPEATED", 
+    "name": "pred_model_2", 
+    "type": "FLOAT"
+  }
+]

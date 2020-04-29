@@ -1,0 +1,8 @@
+config/gcp.yaml
+functions/tweet/env.yaml
+*/jupyter.log
+*/.ipynb_checkpoints/
+
+
+
+

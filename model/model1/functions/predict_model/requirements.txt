@@ -1,0 +1,8 @@
+# Function dependencies, for example:
+# package>=version
+pandas
+numpy
+google-cloud-storage
+google-cloud-bigquery
+lightgbm
+python-twitter
