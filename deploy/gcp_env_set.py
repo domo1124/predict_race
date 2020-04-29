@@ -14,13 +14,13 @@ with open('../config/gcp.yaml','r') as f:
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['CREDENTIALS_JSON']
 project_id = gcp['GCP_PROJECT']
-
+location = gcp['LOCATION']
 
 with open('../config/gcp_env_set.yaml','r') as f:
     conf = yaml.load(f)
 
 
-location = conf['LOCATION']
+
 storage_list = conf['BUCKET_LIST']
 topic_list = conf['TOPIC_LIST']
 data_set_list = conf['BIGQUERY_DATASET_LIST']
