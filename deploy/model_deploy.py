@@ -7,6 +7,7 @@ import yaml
 import json
 from google.cloud import storage
 from time import sleep
+import subprocess
 #Storageにアップロードするモデル名の引数を受け取る
 parser = argparse.ArgumentParser(description='Process model functions deploy')
 parser.add_argument('model_name', metavar='N', type=str, 
@@ -39,16 +40,19 @@ if len(deploy_model) != 0:
     #model Deploy用のバケット作成
     #bucket check
     bucket_check = storage_clent.bucket(args.model_name)
-    if bucket_check.exists():
-        print("aruyo")
-    bucket = storage_clent.create_bucket(args.model_name,location=location)
-    sleep(2)
-    print("Bucket {} created".format(bucket.name))
+    if bucket_check.exists() == False:
+        bucket = storage_clent.create_bucket(args.model_name,location=location)
+        sleep(2)
+        print("Bucket {} created".format(bucket.name))
+    else:
+        bucket = storage_clent.get_bucket(args.model_name)
+        print("already own this bucket")
     #functions
     if 'functions' in deploy_model:
         deploy_functions = deploy_model["functions"]
         deploy_functions =[ p for p in deploy_functions.iterdir() if p.is_dir()]
         for function in deploy_functions:
+            gcloud_cmmand = ["gcloud","functions","deploy","--allow-unauthenticated"]  
             zip_file_name = "{}.zip".format(function.name)
             zip_file_list = [p for p in function.glob('**/*') if 'yaml' not in str(p)]
             with zipfile.ZipFile(zip_file_name, 'w', compression=zipfile.ZIP_DEFLATED) as new_zip:
@@ -59,7 +63,7 @@ if len(deploy_model) != 0:
             blob.upload_from_filename(zip_file_name)
             #アップロード済ファイル削除
             os.remove(zip_file_name)
-            gsutil_link = "gs://{}/functions/{}".format(bucket_name,zip_file_name)
+            gsutil_link = "gs://{}/functions/{}".format(args.model_name,zip_file_name)
             for arg_f in function_args_set:
                 #argsファイル内に存在していた場合、コマンドを設定
                 
@@ -106,7 +110,9 @@ if len(deploy_model) != 0:
         for model in deploy_learn_model:
             for file in model.glob('**/*'):
                 blob = bucket.blob('model/{}/{}'.format(model.name,file.name))
-                blob.upload_from_filename(zip_file_name)
+                blob.upload_from_filename(file)
+                sleep(1)
+            print("{} pickle upload".format(model.name))
 
     else:
         print("Not Found Learning Model")
