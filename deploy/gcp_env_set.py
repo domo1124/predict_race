@@ -12,7 +12,7 @@ print("GCP Storage Pubsub Topic BigQuery Dataset and Table make start")
 with open('../config/gcp.yaml','r') as f:
     gcp = yaml.load(f)
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['REDENTIALS_JSON']
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['CREDENTIALS_JSON']
 project_id = gcp['GCP_PROJECT']
 
 

@@ -18,7 +18,7 @@ with open('../config/gcp.yaml','r') as f:
 with open("../config/functions_args.json") as f:
     function_args_set = json.load(f)
 print(conf)
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['REDENTIALS_JSON']
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['CREDENTIALS_JSON']
 project_id = gcp['GCP_PROJECT']
 #account = gcp['FUNCTIONS_ACCOUNT']
 
