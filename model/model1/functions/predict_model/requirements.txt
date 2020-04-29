@@ -6,3 +6,4 @@ google-cloud-storage
 google-cloud-bigquery
 lightgbm
 python-twitter
+google-cloud-pubsub

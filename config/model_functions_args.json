@@ -4,7 +4,7 @@
         {
             "runtime":"python37",
             "trigger":{"bucket":"run_predict"},
-            "memory":"1GB",
+            "memory":"1024MB",
             "timeout":"540",
             "entry_point":"featuer_make"
         }
@@ -14,7 +14,7 @@
         {
             "runtime":"python37",
             "trigger":{"bucket":"race_featuer"},
-            "memory":"1GB",
+            "memory":"1024MB",
             "timeout":"540",
             "entry_point":"predict_model"
         }

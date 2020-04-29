@@ -24,6 +24,7 @@ with open("../config/model_functions_args.json") as f:
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['CREDENTIALS_JSON']
 project_id = gcp['GCP_PROJECT']
 location = gcp['LOCATION']
+shell = gcp["SHELL"]
 #account = gcp['FUNCTIONS_ACCOUNT']
 #model配下を確認し、model名と同じディレクトリを確認
 deploy_path = '../model/{}'.format(args.model_name)
@@ -95,11 +96,12 @@ if len(deploy_model) != 0:
             gcloud_cmmand.append("--entry-point={}".format(entry_point))
             gcloud_cmmand.append("--env-vars-file={}".format(env_file))
             #gcloud_cmmand.append("--service-account={}".format(account))
-            proc = subprocess.run(gcloud_cmmand,shell =True)
+            print(gcloud_cmmand)
+            proc = subprocess.run(gcloud_cmmand,shell =shell)
             print("{} Deploy End".format(function.name))
             #allUsers権限を削除
             delete_allunsers_command = ["gcloud","functions","remove-iam-policy-binding",function.name, "--member=allUsers","--role=roles/cloudfunctions.invoker"] 
-            proc = subprocess.run(delete_allunsers_command,shell =True)
+            proc = subprocess.run(delete_allunsers_command,shell =shell)
             print("{} allUsers Delete".format(function.name))  
     else:
         print("Not Found Functions")

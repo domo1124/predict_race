@@ -17,9 +17,10 @@ with open('../config/gcp.yaml','r') as f:
 
 with open("../config/functions_args.json") as f:
     function_args_set = json.load(f)
-print(conf)
+
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['CREDENTIALS_JSON']
 project_id = gcp['GCP_PROJECT']
+shell = gcp['SHELL'] 
 #account = gcp['FUNCTIONS_ACCOUNT']
 
 p_temp = pathlib.Path('../functions')
@@ -82,9 +83,9 @@ for function in function_list:
         gcloud_cmmand.append("--entry-point={}".format(entry_point))
         gcloud_cmmand.append("--env-vars-file={}".format(env_file))
         #gcloud_cmmand.append("--service-account={}".format(account))
-        proc = subprocess.run(gcloud_cmmand,shell =True)
+        proc = subprocess.run(gcloud_cmmand,shell =shell)
         print("{} Deploy End".format(function.name)) 
         #allUsers権限を削除
         delete_allunsers_command = ["gcloud","functions","remove-iam-policy-binding",function.name, "--member=allUsers","--role=roles/cloudfunctions.invoker"] 
-        proc = subprocess.run(delete_allunsers_command,shell =True)
+        proc = subprocess.run(delete_allunsers_command,shell =shell)
         print("{} allUsers Delete".format(function.name))         
