@@ -6,4 +6,3 @@ BIGQUERY_TABLE_LIST : [{"dataset":"race_info","table":"race_info","schema_json_p
                        {"dataset":"race_pay","table":"race_pay","schema_json_path":"../config/race_pay_schema.json","source_uri":"gs://race_pay/*"},
                        {"dataset":"predict_result","table":"race_predict","schema_json_path":"../config/race_predict_schema.json","source_uri":"gs://race_pred_result/race/*"},
                        {"dataset":"predict_result","table":"horse_predict","schema_json_path":"../config/horse_predict_schema.json","source_uri":"gs://race_pred_result/horse/*"}]
-LOCATION : us-east1
