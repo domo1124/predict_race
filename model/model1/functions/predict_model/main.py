@@ -81,7 +81,7 @@ def load_model(blobs):
     return gbm_set
     
 
-def predict_result(event, context):
+def predict_model(event, context):
     project_id = os.getenv("GCP_PROJECT")
     client = storage.Client(project_id)
     file_name  = event['name']
