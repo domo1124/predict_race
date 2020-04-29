@@ -6,7 +6,7 @@ import os
 import yaml
 import json
 from google.cloud import storage
-
+from time import sleep
 #Storageにアップロードするモデル名の引数を受け取る
 parser = argparse.ArgumentParser(description='Process model functions deploy')
 parser.add_argument('model_name', metavar='N', type=str, 
@@ -15,7 +15,7 @@ args = parser.parse_args()
 
 
 with open('../config/gcp.yaml','r') as f:
-    gcp = yaml.load(f)
+    gcp = yaml.load(f, Loader=yaml.SafeLoader)
 
 with open("../config/model_functions_args.json") as f:
     function_args_set = json.load(f)
@@ -35,8 +35,12 @@ storage_clent = storage.Client(project_id)
 
 #特徴量作成のモジュールと予測モジュールをStorageにアップロード
 if len(deploy_model) != 0:
-    
+
     #model Deploy用のバケット作成
+    #bucket check
+    bucket_check = storage_clent.bucket(args.model_name)
+    if bucket_check.exists():
+        print("aruyo")
     bucket = storage_clent.create_bucket(args.model_name,location=location)
     sleep(2)
     print("Bucket {} created".format(bucket.name))
@@ -101,7 +105,7 @@ if len(deploy_model) != 0:
         deploy_learn_model =[ p for p in deploy_learn_model.iterdir() if p.is_dir()]
         for model in deploy_learn_model:
             for file in model.glob('**/*'):
-                blob = bucket.blob('model/{}/{}'.format(model.name,file.name)
+                blob = bucket.blob('model/{}/{}'.format(model.name,file.name))
                 blob.upload_from_filename(zip_file_name)
 
     else:

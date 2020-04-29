@@ -10,10 +10,10 @@ import json
 import subprocess
 #yamlファイルからGCPを使うための設定を取得
 with open('../config/function_deploy.yaml','r') as f:
-    conf = yaml.load(f)
+    conf = yaml.load(f, Loader=yaml.SafeLoader)
 
 with open('../config/gcp.yaml','r') as f:
-    gcp = yaml.load(f)
+    gcp = yaml.load(f, Loader=yaml.SafeLoader)
 
 with open("../config/functions_args.json") as f:
     function_args_set = json.load(f)

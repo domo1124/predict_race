@@ -10,14 +10,14 @@ from time import sleep
 print("GCP Storage Pubsub Topic BigQuery Dataset and Table make start")
 
 with open('../config/gcp.yaml','r') as f:
-    gcp = yaml.load(f)
+    gcp = yaml.load(f, Loader=yaml.SafeLoader)
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['CREDENTIALS_JSON']
 project_id = gcp['GCP_PROJECT']
 location = gcp['LOCATION']
 
 with open('../config/gcp_env_set.yaml','r') as f:
-    conf = yaml.load(f)
+    conf = yaml.load(f, Loader=yaml.SafeLoader)
 
 
 
