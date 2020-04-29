@@ -13,8 +13,6 @@ parser.add_argument('model_name', metavar='N', type=str,
                     help='model name')
 args = parser.parse_args()
 
-with open('../config/model_function_deploy.yaml','r') as f:
-    conf = yaml.load(f)
 
 with open('../config/gcp.yaml','r') as f:
     gcp = yaml.load(f)

@@ -1,5 +1,3 @@
-REDENTIALS_JSON : C:\\Users\\hajime kobayashi\\My First Project-ea55bbd81537.json
-GCP_PROJECT : nth-computing-270722
 BUCKET_LIST : ["sys_functions11","predict_race11","predict_horse11","predict_result_aggregate11","race_featuer11","race_order11","race_result_html11","run_predict11","race_reslt11","race_info11","race_pay11"]
 TOPIC_LIST : ["past_race","predict_race","predict_horse","tweet_msg"]
 BIGQUERY_DATASET_LIST : ["race_result","race_info","race_pay","predict_result"]
