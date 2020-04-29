@@ -20,8 +20,9 @@ with open('../config/gcp.yaml','r') as f:
 with open("../config/model_functions_args.json") as f:
     function_args_set = json.load(f)
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['REDENTIALS_JSON']
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=gcp['CREDENTIALS_JSON']
 project_id = gcp['GCP_PROJECT']
+location = gcp['LOCATION']
 #account = gcp['FUNCTIONS_ACCOUNT']
 #model配下を確認し、model名と同じディレクトリを確認
 deploy_path = '../model/{}'.format(args.model_name)
