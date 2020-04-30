@@ -23,9 +23,7 @@ def predict_update(project_name):
 
 
 
-PROJECTID = 'horse-predict-273005'
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='/home/h-kobayashi/horse-predict-273005-b1095c86d135.json'
+PROJECTID = '***************'
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='************************'
 predict_update(PROJECTID)
 
-#Access token :1252142376052641792-RWhPEsCp1bBvmW8MwuegX7ECpXjEhk
-#Access token secret :mKpVtCMOH3DviPaTrd4tlQnPJzeHFPaKfLauVgeRm8AD5
