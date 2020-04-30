@@ -116,7 +116,7 @@ def predict_model(event, context):
     race_pred_set_m3 = {}
 
     #predデータはレースIDごと渡す.
-    blobs =  client.list_blobs("horse_model_1")
+    blobs =  client.list_blobs("model1",prefix='model/model1')
     gbm_set = load_model(blobs)
     for p_id in race_info.keys():
         #model1
@@ -125,7 +125,7 @@ def predict_model(event, context):
         race_pred_set_m1[p_id] = first
     del gbm_set
 
-    blobs =  client.list_blobs("horse_model_2")
+    blobs =  client.list_blobs("model1",prefix='model/model2')
     gbm_set = load_model(blobs)
     for p_id in race_info.keys():
         #model1
@@ -134,7 +134,7 @@ def predict_model(event, context):
         race_pred_set_m2[p_id] = first
     del gbm_set
 
-    blobs =  client.list_blobs("horse_model_3")
+    blobs =  client.list_blobs("model1",prefix='model/model3')
     gbm_set = load_model(blobs)
     for p_id in race_info.keys():
         #model1
@@ -209,7 +209,7 @@ def predict_model(event, context):
             pred_data_set.append(np.sum(f["train"],axis=0))
         pred_data_set = np.array(pred_data_set)
         ave_set = np.zeros((pred_data_set.shape[0],3))
-        blobs =  client.list_blobs("horse_model_join")
+        blobs =  client.list_blobs("model1",prefix='model/ join_1_model')
         model_set = load_model(blobs)
 
         for i,model in enumerate(model_set):
