@@ -24,13 +24,13 @@
  * 出走頭数、レースの出走距離等の条件で予測対象のレースを絞り込みを行う.  
  * 予測対象に選ばれたレース一覧をjson形式でまとめて、GCP Storageにアップロードする. 
  * 予測対象レースに出走する競走馬のURL一覧を、GCP Pub/Subでtopicにpublishする.  
-  __Source code:[predict_race](/functions/predict_race/main.py)__ 
+  __Source code:[predict_race_get](/functions/predict_race_get/main.py)__ 
   
  #### 3.predict_horse (python 3.7) 
  * レースに出走する競走馬の過去に出走したレース結果を取得する. 
  * Big Queryの外部テーブルの参照先のGCP Storageにjsonファイルがないレースのみ抽出する. 
  * jsonファイルが存在しないレースのURLを、GCP Pub/Subでtopicにpublishする.  
-  __Source code:[predict_horse](/functions/predict_horse/main.py)__ 
+  __Source code:[predict_horse_get](/functions/predict_horse_get/main.py)__ 
   
  #### 4.past_race_get (python 3.7) 
  * jsonファイルの存在しないURLに接続して、レースデータのjsonファイルを作成する。
@@ -57,9 +57,9 @@
  * 予測結果のフォーマットを整えて、GCP Pub/Subでtopicにpublishする.  
   __Source code:[AboutMe](/AboutMe.md)__  
   
- #### 8.twitter_output (python 3.7) 
+ #### 8.twitter (python 3.7) 
  * フォーマットされた予測結果をツイートする.  
-  __Source code:[twitter_output](/functions/twitter_output/main.py)__  
+  __Source code:[twitter_output](/functions/twitter/main.py)__  
   
  #### 9.predict_result_aggregate (python 3.7) 
  * 予測したレースの結果を集計する.  
