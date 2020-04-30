@@ -18,7 +18,7 @@
  * レース一覧をスクレイピングするサイトでjavascriptを実行する必要があるため、  
   GCP Functionsが対応しているnodejsで動くHeadless Chromeのpuppeteerを使用.    
  * GCP Pub/Subで取得したレース一覧をtopicにpublishする.  
- __Source code:[AboutMe](/functions/index.js)__ 
+ __Source code:[AboutMe](/functions/week_race_get/index.js)__ 
  
  #### 2.predict_race (python 3.7) 
  * 出走頭数、レースの出走距離等の条件で予測対象のレースを絞り込みを行う.  
