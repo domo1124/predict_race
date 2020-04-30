@@ -1,5 +1,3 @@
-# 競馬予想AI　Twitter Bot
-
 ## Overview  
 1.netkeibaからデータを収集
 
