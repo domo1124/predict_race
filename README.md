@@ -49,13 +49,13 @@
  #### 6.featuer_make (python 3.7) 
  * 競走馬一覧CSVファイルから予測モデルに流す特徴量を作成.  
  * 前処理済の特徴量のCSVファイルをGCP Storageにアップロードする.   
-  __Template Source code:[AboutMe](/AboutMe.md)__  
+  __Template Source code:[featuer_make](/model/template/featuer_make/main.py)__  
   
  #### 7.predict_model (python 3.7) 
  * GCP Storageにある前処理済の特徴量のCSVファイルを読み込み予測を行う.  
  * 予測結果をjsonファイルに出力しGCP Storageにアップロードする.  
  * 予測結果のフォーマットを整えて、GCP Pub/Subでtopicにpublishする.  
-  __Template Source code:[AboutMe](/AboutMe.md)__  
+  __Template Source code:[predict_model](/model/template/predict_model/main.py)__  
   
  #### 8.tweet (python 3.7) 
  * フォーマットされた予測結果をツイートする.  
