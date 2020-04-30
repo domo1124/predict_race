@@ -1,6 +1,7 @@
 config/gcp.yaml
 functions/tweet/env.yaml
 model/*/learning_model/
+model/data/
 */jupyter.log
 */.ipynb_checkpoints/
 
