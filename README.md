@@ -49,13 +49,13 @@
  #### 6.featuer_make (python 3.7) 
  * 競走馬一覧CSVファイルから予測モデルに流す特徴量を作成.  
  * 前処理済の特徴量のCSVファイルをGCP Storageにアップロードする.   
-  __Source code:[AboutMe](/AboutMe.md)__  
+  __Templete Source code:[AboutMe](/AboutMe.md)__  
   
  #### 7.predict_model (python 3.7) 
  * GCP Storageにある前処理済の特徴量のCSVファイルを読み込み予測を行う.  
  * 予測結果をjsonファイルに出力しGCP Storageにアップロードする.  
  * 予測結果のフォーマットを整えて、GCP Pub/Subでtopicにpublishする.  
-  __Source code:[AboutMe](/AboutMe.md)__  
+  __Templete code:[AboutMe](/AboutMe.md)__  
   
  #### 8.tweet (python 3.7) 
  * フォーマットされた予測結果をツイートする.  
@@ -69,7 +69,7 @@
  * 集計した結果をjsonファイルに出力してGCP Storageにアップロードする.  
   __Source code:[predict_result_aggregate](/functions/predict_result_aggregate/main.py)__  
   
- #### 11.predict_result_output (python 3.7) 
+ #### 10.predict_result_output (python 3.7) 
  * GCP Storageにアップロードされた予測したレースの集計結果のjsonファイルを参照し、結果を出力する.  
  * 集計結果のフォーマットを整えて、GCP Pub/Subでtopicにpublishする. 
 
@@ -111,7 +111,8 @@
 | race_info | Storage::race_info | レースの条件 |  
 | race_result | Storage::race_result | レース結果 |  
 | race_pay | Storage::race_pay | 払い戻し結果 |  
-
+| predict_race | Storage::predict_race | 最終的な予測結果 |  
+| predict_horse | Storage::predict_horse | モデルの予測値 |  
 * Pub/Sub Topic    
 
 | Topic | Publish内容 | trigger | PublishするFunctions |   
