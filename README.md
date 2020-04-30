@@ -57,9 +57,9 @@
  * 予測結果のフォーマットを整えて、GCP Pub/Subでtopicにpublishする.  
   __Source code:[AboutMe](/AboutMe.md)__  
   
- #### 8.twitter (python 3.7) 
+ #### 8.tweet (python 3.7) 
  * フォーマットされた予測結果をツイートする.  
-  __Source code:[twitter_output](/functions/twitter/main.py)__  
+  __Source code:[twitter_output](/functions/tweet/main.py)__  
   
  #### 9.predict_result_aggregate (python 3.7) 
  * 予測したレースの結果を集計する.  
