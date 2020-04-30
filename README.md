@@ -37,7 +37,7 @@
  * 作成するファイルは以下の通り.  
    - race_info.json : レースの情報 
    - race_result.json :　レースの結果
-   - race_pay.json : レースの配当金
+   - race_pay.json : レースの配当金  
   __Source code:[past_race_get](/functions/past_race_get/main.py)__  
   
  #### 5.predict_race_check (python 3.7) 
