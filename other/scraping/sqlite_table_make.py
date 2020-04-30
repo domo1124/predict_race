@@ -76,19 +76,19 @@ con.commit()
 
 #同ディレクトリのjson(Bigquery用)を読みこんでInsert
 
-with open("race_result.json",'r',encoding= 'utf-8') as fr:
+with open("./data/race_result.json",'r',encoding= 'utf-8') as fr:
     for i in fr:
         data=tuple(json.loads(i.strip()).values())
         cur.execute('''insert into race_result values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', data)
 
-with open("race_info.json",'r',encoding= 'utf-8') as fi:
+with open("./data/race_info.json",'r',encoding= 'utf-8') as fi:
     for i in fi:
         data=json.loads(i.strip())
         data["kind"] = data["kind"].replace(" ","").replace("ダート","ダ")
         data = tuple(data.values())
         cur.execute('''insert into race_info values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', data)
     
-with open("race_pay.json",'r',encoding= 'utf-8') as fp:
+with open("./data/race_pay.json",'r',encoding= 'utf-8') as fp:
     for i in fp:
         data=tuple(json.loads(i.strip()).values())
         cur.execute('''insert into race_pay values(?,?,?,?,?,?)''', data)
