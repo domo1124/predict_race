@@ -20,13 +20,13 @@
  * GCP Pub/Subで取得したレース一覧をtopicにpublishする.  
  __Source code:[week_race_get](/functions/week_race_get/index.js)__ 
  
- #### 2.predict_race (python 3.7) 
+ #### 2.predict_race_get (python 3.7) 
  * 出走頭数、レースの出走距離等の条件で予測対象のレースを絞り込みを行う.  
  * 予測対象に選ばれたレース一覧をjson形式でまとめて、GCP Storageにアップロードする. 
  * 予測対象レースに出走する競走馬のURL一覧を、GCP Pub/Subでtopicにpublishする.  
   __Source code:[predict_race_get](/functions/predict_race_get/main.py)__ 
   
- #### 3.predict_horse (python 3.7) 
+ #### 3.predict_horse_get (python 3.7) 
  * レースに出走する競走馬の過去に出走したレース結果を取得する. 
  * Big Queryの外部テーブルの参照先のGCP Storageにjsonファイルがないレースのみ抽出する. 
  * jsonファイルが存在しないレースのURLを、GCP Pub/Subでtopicにpublishする.  
