@@ -3,7 +3,7 @@
         "featuer_make":
         {
             "runtime":"python37",
-            "trigger":{"bucket":"run_predict"},
+            "trigger":{"bucket":"run_predict11"},
             "memory":"1024MB",
             "timeout":"540",
             "entry_point":"featuer_make"
@@ -13,7 +13,7 @@
         "predict_model":
         {
             "runtime":"python37",
-            "trigger":{"bucket":"race_featuer"},
+            "trigger":{"bucket":"race_featuer11"},
             "memory":"1024MB",
             "timeout":"540",
             "entry_point":"predict_model"

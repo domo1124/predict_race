@@ -96,7 +96,6 @@ if len(deploy_model) != 0:
             gcloud_cmmand.append("--entry-point={}".format(entry_point))
             gcloud_cmmand.append("--env-vars-file={}".format(env_file))
             #gcloud_cmmand.append("--service-account={}".format(account))
-            print(gcloud_cmmand)
             proc = subprocess.run(gcloud_cmmand,shell =shell)
             print("{} Deploy End".format(function.name))
             #allUsers権限を削除
