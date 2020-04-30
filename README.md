@@ -18,19 +18,19 @@
  * レース一覧をスクレイピングするサイトでjavascriptを実行する必要があるため、  
   GCP Functionsが対応しているnodejsで動くHeadless Chromeのpuppeteerを使用.    
  * GCP Pub/Subで取得したレース一覧をtopicにpublishする.  
- __Source code:[AboutMe](/functions/week_race_get/index.js)__ 
+ __Source code:[week_race_get](/functions/week_race_get/index.js)__ 
  
  #### 2.predict_race (python 3.7) 
  * 出走頭数、レースの出走距離等の条件で予測対象のレースを絞り込みを行う.  
  * 予測対象に選ばれたレース一覧をjson形式でまとめて、GCP Storageにアップロードする. 
  * 予測対象レースに出走する競走馬のURL一覧を、GCP Pub/Subでtopicにpublishする.  
-  __Source code:[AboutMe](/AboutMe.md)__ 
+  __Source code:[predict_race](/functions/predict_race/main.py)__ 
   
  #### 3.predict_horse (python 3.7) 
  * レースに出走する競走馬の過去に出走したレース結果を取得する. 
  * Big Queryの外部テーブルの参照先のGCP Storageにjsonファイルがないレースのみ抽出する. 
  * jsonファイルが存在しないレースのURLを、GCP Pub/Subでtopicにpublishする.  
-  __Source code:[AboutMe](/AboutMe.md)__ 
+  __Source code:[predict_horse](/functions/predict_horse/main.py)__ 
   
  #### 4.past_race_get (python 3.7) 
  * jsonファイルの存在しないURLに接続して、レースデータのjsonファイルを作成する。
@@ -38,20 +38,20 @@
    - race_info.json : レースの情報 
    - race_result.json :　レースの結果
    - race_pay.json : レースの配当金
-  __Source code:[AboutMe](/AboutMe.md)__  
+  __Source code:[past_race_get](/functions/past_race_get/main.py)__  
   
  #### 5.predict_race_check (python 3.7) 
  * GCP Storage上にアップロードされている予測対象レースファイルを参照し、  
  開催時間の1時間前かどうか判断する.
  * 1時間前ならレースに出走する競走馬一覧のCSVファイルを作成し、GCP Storageにアップロードする.  
-  __Source code:[AboutMe](/AboutMe.md)__  
+  __Source code:[predict_race_check](/functions/predict_race_check/main.py)__  
   
  #### 6.featuer_make (python 3.7) 
  * 競走馬一覧CSVファイルから予測モデルに流す特徴量を作成.  
  * 前処理済の特徴量のCSVファイルをGCP Storageにアップロードする.   
   __Source code:[AboutMe](/AboutMe.md)__  
   
- #### 7.predict_result (python 3.7) 
+ #### 7.predict_model (python 3.7) 
  * GCP Storageにある前処理済の特徴量のCSVファイルを読み込み予測を行う.  
  * 予測結果をjsonファイルに出力しGCP Storageにアップロードする.  
  * 予測結果のフォーマットを整えて、GCP Pub/Subでtopicにpublishする.  
@@ -59,7 +59,7 @@
   
  #### 8.twitter_output (python 3.7) 
  * フォーマットされた予測結果をツイートする.  
-  __Source code:[AboutMe](/AboutMe.md)__  
+  __Source code:[twitter_output](/functions/twitter_output/main.py)__  
   
  #### 9.predict_result_aggregate (python 3.7) 
  * 予測したレースの結果を集計する.  
@@ -67,13 +67,13 @@
    - 軸馬として選んだ馬の馬券内率
    - 開催場ごとの的中率と回収率
  * 集計した結果をjsonファイルに出力してGCP Storageにアップロードする.  
-  __Source code:[AboutMe](/AboutMe.md)__  
+  __Source code:[predict_result_aggregate](/functions/predict_result_aggregate/main.py)__  
   
  #### 11.predict_result_output (python 3.7) 
  * GCP Storageにアップロードされた予測したレースの集計結果のjsonファイルを参照し、結果を出力する.  
  * 集計結果のフォーマットを整えて、GCP Pub/Subでtopicにpublishする. 
 
-  __Source code:[AboutMe](/AboutMe.md)__  
+  __Source code:[predict_result_output](/functions/predict_result_output/main.py)__  
 
 ## 関連モジュール  
 モデル学習用のデータを取得したスクレイピングモジュール.  
