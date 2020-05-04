@@ -37,6 +37,8 @@ rename_column =[
  'pred_distance',
  'pred_condition',
  'pred_place',
+ "pred_horse_weight",
+ "pred_dif_horse_weight",
  'past_race_id',
  'past_tyaku',
  'past_wakuban',
@@ -82,6 +84,8 @@ sort_columns=[
  'pred_distance',
  'pred_condition',
  'pred_place',
+ "pred_horse_weight",
+ "pred_dif_horse_weight",
  'past_tyaku',
  'past_wakuban',
  'past_umaban',
@@ -145,7 +149,7 @@ cur = con.cursor()
 df = pd.read_sql_query(sql=query,con=con)
 df["p_race_date"] = pd.to_datetime(df["p_race_date"],format='%Y-%m-%d')
 #出走表データの作成
-horse_order = df.sort_values(["p_race_id","p_umaban"])[["p_race_id","horse_id","horse_name","p_horse_years","p_horse_sex","p_tyaku","p_wakuban","p_umaban","p_race_date","p_race_rank1","p_race_rank2","p_kind","p_distance","p_condition","p_place"]]
+horse_order = df.sort_values(["p_race_id","p_umaban"])[["p_race_id","horse_id","horse_name","p_horse_years","p_horse_sex","p_tyaku","p_wakuban","p_umaban","p_race_date","p_race_rank1","p_race_rank2","p_kind","p_distance","p_condition","p_place","p_horse_weight","p_dif_horse_weight"]]
 #馬ごとにデータをまとめる
 horse_data = df.groupby("horse_id").apply(lambda x:x.sort_values("p_race_date"))
 #Merge
