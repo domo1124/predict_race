@@ -84,9 +84,9 @@
 
 | Scheduler | 概要 | 頻度 | ターゲット | ターゲットFunctions |  
 ----|----|----|----|----   
-| predict_race_get | 特徴量に必要なデータの収集 | 毎週土日 0:00 | HTTP | week_race_get |  
-| predict_race_check | 予測対象レースの特徴量作成と予測 | 毎週土日 9:00~15:40 20分毎 | HTTP | predict_race_check |  
-| predict_result_aggregate | 予測結果の集計 | 毎週土日 19:00 | HTTP | predict_result_aggregate |  
+| predict_race_get | 特徴量に必要なデータの収集 | 毎週土日 0:00<br>(0 0 * * 0,6) | HTTP | week_race_get |  
+| predict_race_check | 予測対象レースの特徴量作成と予測 | 毎週土日 9:00~15:40 20分毎<br>(*/20 09-15 * * 0,6) | HTTP | predict_race_check |  
+| predict_result_aggregate | 予測結果の集計 | 毎週土日 19:00<br>(0 19 * * 0,6) | HTTP | predict_result_aggregate |  
 
 * Storage bucket  
 
