@@ -112,7 +112,9 @@ sort_columns=[
  'past_dif_time'
 ]
 query = """
-            select *,round(time-top_time,2) as dif_time from (
+            select *,
+            round(time-top_time,2) as dif_time
+            from (
             SELECT 
                 rr.race_id as p_race_id, 
                 rr.tyaku as p_tyaku,
@@ -141,10 +143,14 @@ query = """
                 ri.place as p_place,
                 ri.horse_count as p_horse_count,
                 ri.lap_time
-                FROM race_result rr left join race_info ri on rr.race_id = ri.race_id )  tmp
+                FROM race_result rr left join race_info ri on rr.race_id = ri.race_id )  tmp 
 """
 #データの読み込み
 con = sqlite3.connect('./data/race_data_set.db') # データベースに接続する
+
+con.enable_load_extension(True)
+con.load_extension("../../sqlite-amalgamation-3260000/libsqlitefunctions.so")
+
 cur = con.cursor()
 df = pd.read_sql_query(sql=query,con=con)
 df["p_race_date"] = pd.to_datetime(df["p_race_date"],format='%Y-%m-%d')
