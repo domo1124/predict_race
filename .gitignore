@@ -3,6 +3,6 @@ functions/tweet/env.yaml
 model/data/
 .ipynb_checkpoints/
 mlruns/
-
+learning_model/
 
 
