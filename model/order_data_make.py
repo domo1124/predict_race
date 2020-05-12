@@ -20,7 +20,9 @@ def order_data_make(i):
 #いらないcolumnのlist
 del_columns =[ 
  'horse_name_y',
- 'top_time']
+ 'top_time',
+ 'lag_time',
+ 'lead_time']
 rename_column =[
  'pred_race_id',
  'horse_id',
@@ -64,6 +66,8 @@ rename_column =[
  'past_horse_count',
  'past_lap_time',
  'past_dif_time',
+ 'past_dif_time1',
+ 'past_dif_time2',
  'past_race_num'
 ]
 sort_columns=[
@@ -109,11 +113,15 @@ sort_columns=[
  'past_place',
  'past_horse_count',
  'past_lap_time',
- 'past_dif_time'
+ 'past_dif_time',
+ 'past_dif_time1',
+ 'past_dif_time2'
 ]
 query = """
             select *,
-            round(time-top_time,2) as dif_time
+            round(time-top_time,2) as dif_time,
+            round(time-lag_time,2) as dif_time1,
+            round(lead_time-time,2) as dif_time2
             from (
             SELECT 
                 rr.race_id as p_race_id, 
@@ -126,7 +134,9 @@ query = """
                 rr.horse_years as p_horse_years,
                 rr.kinryo as p_kinryo,
                 rr.time,
-                min(rr.time) over(partition by rr.race_id) as top_time, 
+                min(rr.time) over(partition by rr.race_id) as top_time,
+                lag(rr.time,1) over(partition by rr.race_id order by rr.time) as lag_time, 
+                lead(rr.time,1) over(partition by rr.race_id order by rr.time) as lead_time, 
                 rr.last3f,
                 rr.p1,
                 rr.p2,
