@@ -123,6 +123,6 @@
 | tweet_msg | Tweetする内容 | predict_result_output | predict_result<br>predict_result_output |  
 ### TODO  
 * 予測モデルの精度向上
-* デプロイモジュールの作成--okg
+* デプロイモジュールの作成--ok
 * 土日開催以外の場合、どうするか
 
