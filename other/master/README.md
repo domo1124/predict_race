@@ -1,4 +1,7 @@
  netkeibaから期間指定してデータを取得
+ 
+ 出力ファイル
+ 
  - rece_result.[csv,tsv,json]
  - race_info.[csv,tsv,json]
  - race_odds.[csv,tsv,json]
@@ -17,7 +20,7 @@ csv、tsv、json
 
 new、update
 
-新規作成の場合、出力ファイルの拡張子にタイムスタンプがつく
+新規作成の場合、出力ファイルの末尾にタイムスタンプがつく
 
 更新する場合は、実行ディレクトリに更新したいrece_result、race_inforace_oddsのファイルを置いておく
 
