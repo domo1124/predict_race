@@ -7,7 +7,6 @@ import requests
 import json
 import csv
 import os
-import cchardet
 
 def update_file(file_name,update_file):
     with open(file_name,'a') as f:
