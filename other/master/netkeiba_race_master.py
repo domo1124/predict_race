@@ -313,7 +313,6 @@ if __name__ == '__main__':
                 race_result += result
                 race_info += info
                 race_odds += odds
-                break
 
     result_f,info_f,odds_f = output(args.file_type.lower(),race_result,race_info,race_odds)
     if args.update_type == 'update':
