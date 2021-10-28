@@ -53,19 +53,19 @@ new、update
 | -----: | :------: | :----  |
 | race_id | STRING | レース識別ID(FK)<br>netkeibaのIDと同じ |	
 | race_num | INTEGER | レース番号  |
-| race_name | INTEGER | レース名|	
-| race_date | INTEGER | レース開催日|		
+| race_name | STRING | レース名|	
+| race_date | STRING | レース開催日|		
 | race_rank1 | STRING | 出走条件(年齢)|	
-| race_rank2 | INTEGER | 出走条件(新馬/未勝利/1勝/2勝/3勝/オープン)|
+| race_rank2 | STRING | 出走条件(新馬/未勝利/1勝/2勝/3勝/オープン)|
 | distance | STRING | 距離 |	
-| kind | FLOAT | 芝/ダート|	
-| place | FLOAT | 競馬場|	
+| kind | STRING | 芝/ダート|	
+| place | STRING | 競馬場|	
 | horse_count | INTEGER | 出走頭数|	
-| lap_time | FLOAT | レースラップタイム|
-| conner1 | FLOAT | 1コーナー通過順|	
-| conner2 | INTEGER	| 2コーナー通過順|	
-| conner3 | FLOAT | 3コーナー通過順|	
-| conner3 | INTEGER	| 4コーナー通過順|	
+| lap_time | STRING | レースラップタイム|
+| conner1 | STRING | 1コーナー通過順|	
+| conner2 | STRING | 2コーナー通過順|	
+| conner3 | STRING | 3コーナー通過順|	
+| conner4 | STRING | 4コーナー通過順|	
 
 ### race_odds
 | column_name | type | discription | 
