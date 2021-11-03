@@ -30,6 +30,8 @@ new、update
 | -----: | :------: | :----  |
 | race_id | STRING | レース識別ID(FK)<br>netkeibaのIDと同じ |	
 | horse_id | INTEGER | 馬識別ID(FK)<br>netkeibaのIDと同じ  |
+| horse_mame | STRIMG | 馬名 |
+| tyaku | INTEGER | 着順 |
 | wakuban | INTEGER | 枠番|	
 | umaban | INTEGER | 馬版|		
 | horse_sex | STRING | 馬の性別|	
